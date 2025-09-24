@@ -1,8 +1,9 @@
 from colorama import init, Fore
+import getpass
 
 init(autoreset=True)
 
-usuarios = {'Admin':hash('123456'),'Lucas':hash('abcd'),'Pablo':hash('escobar')}
+usuarios = {'Admin':hash('123456'),'Lucas':hash('root')}
 bloqueados = set()
 
 while True:
@@ -26,7 +27,7 @@ while True:
                     else:
                         conts = 1
                         while conts <= 3:
-                            senha = hash(input('\nDigite sua senha: '))
+                            senha = hash(getpass.getpass(prompt='\nDigite sua senha: '))
                             if conts == 3:
                                 bloqueados.add(usuario)
                                 print(Fore.RED + 'Tentativas esgotadas!')
@@ -69,7 +70,7 @@ while True:
                     if usuario in usuarios:
                         print('\nNome de usuário já em uso!')
                     else:
-                        usuarios[usuario] = hash(input('Digite a senha: '))
+                        usuarios[usuario] = hash(getpass.getpass(prompt='\nDigite sua senha: '))
                         print(Fore.BLUE + '\nCadastro realizado com sucesso!')
                         break
             case 3:
