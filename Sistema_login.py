@@ -2,7 +2,7 @@ from colorama import init, Fore
 
 init(autoreset=True)
 
-usuarios = {'Admin':'123456','Lucas':'abcd','Pablo':'escobar'}
+usuarios = {'Admin':hash('123456'),'Lucas':hash('abcd'),'Pablo':hash('escobar')}
 bloqueados = set()
 
 while True:
@@ -11,49 +11,57 @@ while True:
         opcao = int(input('\nDigite o que gostaria de fazer:'))
         match opcao:
             case 1:
-                while True:
-                    for i in range(1,4):
-                        usuario = input('\nDigite o seu nome de usuário:')
-                        if usuario in bloqueados:
-                            print(Fore.RED + '\nUsuário bloqueado!')
-                        elif usuario in usuarios:
-                            for i in range(1,4):
-                                senha = input('\nDigite sua senha:')
-                                if senha == usuarios[usuario]:
-                                    print(f'\nBem vindo, {usuario}!')
-                                    while True:
-                                        opcao = int(input('\nSelecione uma opção:\n'
-                                                          ' 1- Usuários cadastrados\n 2- Remover usuário\n 3- Usuários bloqueados\n'
-                                                          ' 4- Desbloquear usuário\n 5- Sair '))
-                                        match opcao:
-                                            case 1:
-                                                print('\nlista de usuários cadastrados:')
-                                                print(*usuarios.keys(), sep='\n')
-                                            case 2:
-                                                usuario = input('\nDigite o nome de usuário que gostaria de remover:')
-                                                del usuarios[usuario]
-                                                print(Fore.BLUE + 'Usuário removido!')
-                                            case 3:
-                                                print('\nlista de usuários bloqueados:')
-                                                print(*bloqueados, sep='\n')
-                                            case 4:
-                                                usuario = input('\nDigite o nome de usuário que gostaria de desbloquear:')
-                                                bloqueados.remove(usuario)
-                                                print(Fore.BLUE + 'Usuário desbloqueado!')
-                                            case 5:
-                                                break
-                                            case _:
-                                                print(Fore.RED + '\nSelecione uma opção válida!')
-                                    break
-                                else:
-                                    print(Fore.RED + 'Senha incorreta!')
-                            print(Fore.RED + '\nTentativas esgotadas!')
-                            bloqueados.add(usuario)
-                            break
-                        else:
-                            print(Fore.RED + 'Usuário incorreto!\n')
-                    print(Fore.RED + '\nTentativas esgotadas!')
-                    break
+                cont = 1
+                while cont <= 3:
+                    usuario = input('\nDigite o seu nome de usuário:')
+                    if usuario in bloqueados:
+                        print(Fore.RED + 'Usuário bloqueado!')
+                        continue
+                    elif cont == 3:
+                        print(Fore.RED + 'Tentativas esgotadas!')
+                        break
+                    elif usuario not in usuarios:
+                        print(Fore.RED + 'Usuário inválido!')
+                        cont += 1
+                    else:
+                        conts = 1
+                        while conts <= 3:
+                            senha = hash(input('\nDigite sua senha: '))
+                            if conts == 3:
+                                bloqueados.add(usuario)
+                                print(Fore.RED + 'Tentativas esgotadas!')
+                                cont = 4
+                                break
+                            elif senha != usuarios[usuario]:
+                                print(Fore.RED + 'Senha inválida!')
+                                conts += 1
+                            else:
+                                print(Fore.BLUE + 'Bem vindo!')
+                                while True:
+                                    opcao = int(input('\nSelecione uma opção:\n'
+                                                      ' 1- Usuários cadastrados\n 2- Remover usuário\n 3- Usuários bloqueados\n'
+                                                      ' 4- Desbloquear usuário\n 5- Sair\n '))
+                                    match opcao:
+                                        case 1:
+                                            print('\nlista de usuários cadastrados:')
+                                            print(*usuarios.keys(), sep='\n')
+                                        case 2:
+                                            usuario = input('\nDigite o nome de usuário que gostaria de remover:')
+                                            del usuarios[usuario]
+                                            print(Fore.BLUE + 'Usuário removido!')
+                                        case 3:
+                                            print('\nlista de usuários bloqueados:')
+                                            print(*bloqueados, sep='\n')
+                                        case 4:
+                                            usuario = input('\nDigite o nome de usuário que gostaria de desbloquear:')
+                                            bloqueados.remove(usuario)
+                                            print(Fore.BLUE + 'Usuário desbloqueado!')
+                                        case 5:
+                                            break
+                                        case _:
+                                            print(Fore.RED + '\nSelecione uma opção válida!')
+                                cont = 4
+                                break
             case 2:
                 print('Área de cadastro.')
                 while True:
@@ -61,7 +69,7 @@ while True:
                     if usuario in usuarios:
                         print('\nNome de usuário já em uso!')
                     else:
-                        usuarios[usuario] = input('Digite a senha: ')
+                        usuarios[usuario] = hash(input('Digite a senha: '))
                         print(Fore.BLUE + '\nCadastro realizado com sucesso!')
                         break
             case 3:
@@ -74,4 +82,3 @@ while True:
         print("Programa interrompido pelo usuário!")
 
 print('Fim do programa!')
-
