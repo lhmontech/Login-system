@@ -6,10 +6,10 @@
 A ideia aqui era colocar em prática o máximo de funcionalidades que aprendi da linguagem Python. É um sistema bem simples de login e cadastro, básicamente tem um menu, onde você entra no seu usuário, 
 faz seu cadastro ou encerra o programa. No login você tem 3 tentativas, caso erre a senha 3 vezes o usuário é bloqueado, para fazer o cadastro não pode ter um usuário repetido e após entrar no usuário
 você tem as seguintes opções:
-- Conferir usuários cadastrados;
-- Conferir quais usuários estão bloqueados;
-- Remover um usuário;
-- Desbloquear um usuário.
+- Conferir usuários cadastrados
+- Conferir quais usuários estão bloqueados
+- Remover um usuário
+- Desbloquear um usuário
 
 ## 🛠️ Comandos usados
 
