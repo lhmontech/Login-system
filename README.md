@@ -23,7 +23,23 @@ Commands that I used:
 - Hash
 - Set
 
+## 🚀 How to execute the project
 
+### Prerequisites for preparing the enviroment
+Before run the project, you need have:
+- [Python (version 3.10+)](https://www.python.org/downloads/)
+
+### ⚙️ To run in Windows terminal
+1. Open the **CMD** or **PowerShell**
+2. cd folder\path (put the path where it's the script python and requirements.txt)
+3. Run this command -> pip install -r requirements.txt
+4. Run the script -> python Login_system.py
+
+### ⚙️ To run in Linux/Mac terminal
+1. Open the terminal with the commands **(Ctrl + Alt + T)**
+2. cd folder\path (put the path where it's the script python and requirements.txt)
+3. Run this command -> pip install -r requirements.txt
+4. Run the script -> python3 Login_system.py
 
 ## 🛠️ Developed by
 
