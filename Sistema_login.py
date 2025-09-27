@@ -37,7 +37,7 @@ while True:
                                 print(Fore.RED + 'Senha inválida!')
                                 conts += 1
                             else:
-                                print(Fore.BLUE + 'Bem vindo!')
+                                print(Fore.BLUE + f'Bem vindo {usuario}!')
                                 while True:
                                     opcao = int(input('\nSelecione uma opção:\n'
                                                       ' 1- Usuários cadastrados\n 2- Remover usuário\n 3- Usuários bloqueados\n'
@@ -83,3 +83,4 @@ while True:
         print("Programa interrompido pelo usuário!")
 
 print('Fim do programa!')
+
