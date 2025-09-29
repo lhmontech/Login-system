@@ -13,12 +13,12 @@ while True:
         match option:
             case 1:
                 cont = 1
-                while cont < 4:
+                while cont != 4:
                     user = input('\nEnter your username:')
                     if user in blocked:
                         print(Fore.RED + 'Blocked user!')
                         continue
-                    elif cont > 3:
+                    elif (cont == 3) and (user not in users):
                         print(Fore.RED + 'Failed attempts')
                         break
                     elif user not in users:
@@ -26,9 +26,9 @@ while True:
                         cont += 1
                     else:
                         conts = 1
-                        while conts < 4:
+                        while conts != 4:
                             senha = hash(getpass.getpass(prompt='\nEnter your password: '))
-                            if conts > 3:
+                            if (conts == 3) and (senha != users[user]):
                                 blocked.add(user)
                                 print(Fore.RED + 'Failed attempts')
                                 cont = 4
