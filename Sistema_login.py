@@ -13,12 +13,12 @@ while True:
         match opcao:
             case 1:
                 cont = 1
-                while cont <= 3:
+                while cont != 4:
                     usuario = input('\nDigite o seu nome de usuário:')
                     if usuario in bloqueados:
                         print(Fore.RED + 'Usuário bloqueado!')
                         continue
-                    elif cont == 3:
+                    elif (cont == 3) and (usuario not in usuarios):
                         print(Fore.RED + 'Tentativas esgotadas!')
                         break
                     elif usuario not in usuarios:
@@ -26,9 +26,9 @@ while True:
                         cont += 1
                     else:
                         conts = 1
-                        while conts <= 3:
+                        while conts != 4:
                             senha = hash(getpass.getpass(prompt='\nDigite sua senha: '))
-                            if conts == 3:
+                            if (conts == 3) and (senha != usuarios[usuario]):
                                 bloqueados.add(usuario)
                                 print(Fore.RED + 'Tentativas esgotadas!')
                                 cont = 4
@@ -83,4 +83,5 @@ while True:
         print("Programa interrompido pelo usuário!")
 
 print('Fim do programa!')
+
 
