@@ -33,7 +33,7 @@ Comandos que usei:
 
 ### Pré-requisitos para preparar o ambiente
 Antes de rodar o projeto, você precisa ter instalado:
-- [Python (versão 3.10+)](https://www.python.org/downloads/)
+- <a href="https://www.python.org/downloads/"><img alt="Python" height="40" align="left" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />Python (version 3.10+)</a>
 
 ### ⚙️ Para executar no terminal Windows
 1. Abra o **CMD** ou **PowerShell**
