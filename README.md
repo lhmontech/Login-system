@@ -31,7 +31,7 @@ Commands that I used:
 
 ### Prerequisites for preparing the enviroment
 Before run the project, you need have:
-- [Python (version 3.10+)](https://www.python.org/downloads/)
+- <a href="https://www.python.org/downloads/"><img alt="Python" height="40" align="left" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />Python (version 3.10+)</a>
 
 ### ⚙️ To run in Windows terminal
 1. Open the **CMD** or **PowerShell**
